@@ -12,11 +12,17 @@ public class MethodAspect {
     private static final String TAG = "MethodAspect";
 
     @Pointcut("execution(* com.example.testaspectj.MainActivity.onCreate(..))")
-    public void jointPoint() {}
+    public void joinPoint() {}
 
-    @Before("jointPoint()")
+    @Before("joinPoint()")
     public void beforeOnCreate() {
         Log.e(TAG, "this message is printed before onCreate...");
     }
+
+    // 上面两个方法也可以合并写为下面一个方法
+//    @Before("execution(* com.example.testaspectj.MainActivity.onCreate(..))")
+//    public void beforeOnCreate(JoinPoint joinPoint) {
+//        Log.e(TAG, "this message is printed before onCreate...");
+//    }
 
 }
